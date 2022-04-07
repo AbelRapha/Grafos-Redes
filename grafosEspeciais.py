@@ -32,5 +32,5 @@ addAresta(grafo,1,2)
 addAresta(grafo,2,3)
 addAresta(grafo,3,4)
 mostraGrafo(grafo)
-vertice = 4
+vertice =1
 print('grau({})={}'.format(vertice,grau(grafo,vertice)))
