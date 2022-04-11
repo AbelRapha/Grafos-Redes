@@ -2,7 +2,7 @@
 
 Olá, este repositório é dedicado ao compartilhamento do conhecimento adquirido durante as aulas da disciplina de Grafos e Redes. Caso queira fazer algum PR para adicionar códigos feitos em outras linguagens sinta-se a vontade. 
 
-No caso, irei realizar nas linguagem C e Python.
+No caso, irei realizar nas linguagens C e Python.
 
 ## ⚠️ ATENÇÃO ⚠️ 
 
