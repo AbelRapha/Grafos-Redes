@@ -32,14 +32,16 @@ void addAresta(int u, int v){
 }
 // Função que obtém o grau do grafo ao somar a linha respectiva ao vértice
 int grau(int v){
+  printf("--------------Grau do vértice------------------- \n");
   int s=0;
    for (int i=0; i<n;i++)
     s += A[v][i];
   
   return s;
 }
+
+
 int main(){
-  printf("Olá Mundo \n");
   int nVertices=5;
   novoGrafo(nVertices);
   // Adicionando valores na matriz nas seguintes posições (0,1),(1,2),(2,3),(3,4)
