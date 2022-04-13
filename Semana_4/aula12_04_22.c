@@ -162,6 +162,7 @@ void grafoCn(){
     printf("Grafo Cn \n");
     for (int i=0; i<n; i++){
         for (int j = 0; j<n;j++){
+            A[i][j]=0;
             if (i == j) {
                 A[i][j] = 0;
             }
@@ -188,6 +189,7 @@ void grafoPn(){
     printf("Grafo Pn \n");
     for (int i=0; i<n; i++){
         for (int j = 0; j<n;j++){
+            A[i][j] = 0;
             if (i==j) {
                 A[i][i] = 0;
             }
@@ -210,6 +212,7 @@ void grafoPn(){
 // Exercício 8
 
 void grafoK(){
+    printf("GRAFO K n1, n2\n");
     int n1,n2;
     printf("Digite um valor para n1: ");
     scanf("%d",&n1 );
@@ -238,5 +241,19 @@ void grafoK(){
 int main(){
     int nVertices = 5;
     novoGrafo(nVertices);
+    primeiraLinha();
+    meioLinha();
+    ultimaLinha();
+    primeiraColuna();
+    meioColuna();
+    ultimaColuna();
+    diagonalPrincipal();
+    diagonalSecundaria();
+    triangularSuperior();
+    triangularInferior();
+    vizinhosDoVertice(); //Caso aparece uma linha vazia quer dizer que não tiveram vizinhos do vértice
+    grafoKn();
+    grafoCn();
+    grafoPn();
     grafoK();
 }
