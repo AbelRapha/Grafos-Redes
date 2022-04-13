@@ -163,7 +163,7 @@ void grafoCn(){
     for (int i=0; i<n; i++){
         for (int j = 0; j<n;j++){
             if (i == j) {
-                A[i][i] = 0;
+                A[i][j] = 0;
             }
             else if (i == 0){
                 A[i][i+1] =1;
@@ -211,18 +211,32 @@ void grafoPn(){
 
 void grafoK(){
     int n1,n2;
-    n1 = 0;
-    n2 = 0;
     printf("Digite um valor para n1: ");
     scanf("%d",&n1 );
     printf("Digite um valor para n2: ");
     scanf("%d",&n2 );
+    for (int i = 0; i<n1+n2; i++){
+        for (int j = 0; j<n1+n2; j++){
+            A[i][j]=0;
+        }
+    }
+    for (int i = 0; i<n1;i++){
+        for (int j = n1; j<n1+n2; j++){
+            A[i][j] = 1;
+            A[j][i] = 1;
+        }
+    }
+    for (int i = 0; i<n1+n2; i++){
+        for (int j = 0; j<n1+n2; j++){
+            printf("%d ", A[i][j]);
+        }
+        printf("\n");
+    }
 
 }
 
 int main(){
     int nVertices = 5;
     novoGrafo(nVertices);
-    grafoPn();
-    
+    grafoK();
 }
