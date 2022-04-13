@@ -1,3 +1,6 @@
+// ALUNOS: ABEL RAPHA DE JESUS MACEDO RA: 230424
+//         LUIZ HENRIQUE RUBIM FERRANDA RA: 183222
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -20,6 +23,7 @@ void novoGrafo(int N){
 // Exercício 1
 
 void primeiraLinha(){
+    printf("PRIMEIRA LINHA \n");
     for (int j=0; j<n; j++){
         printf("%d ",A[0][j]);
     }
@@ -27,6 +31,7 @@ void primeiraLinha(){
 }
 
 void ultimaLinha(){
+    printf("ÚLTIMA LINHA \n");
     for (int j=0; j<n; j++){
         printf("%d ", A[n-1][j]);
     }
@@ -34,6 +39,7 @@ void ultimaLinha(){
 }
 
 void meioLinha(){
+    printf("MEIA LINHA \n");
    int middle_element = n/2 + 1/2;
     for (int j=0; j<n;j++){
         printf("%d ",A[middle_element][j]);
@@ -44,6 +50,7 @@ void meioLinha(){
 // Exercício 2
 
 void primeiraColuna(){
+    printf("PRIMEIRA COLUNA \n");
     for (int i=0; i<n; i++){
         printf("%d ",A[i][0]);
     }
@@ -51,6 +58,7 @@ void primeiraColuna(){
 }
 
 void ultimaColuna(){
+    printf("ÚLTIMA COLUNA \n");
     for (int i=0; i<n; i++){
         printf("%d ", A[i][n-1]);
     }
@@ -58,6 +66,7 @@ void ultimaColuna(){
 }
 
 void meioColuna(){
+    printf("MEIO COLUNA \n");
    int middle_element = n/2 + 1/2;
     for (int i=0; i<n;i++){
         printf("%d ",A[i][middle_element]);
@@ -85,6 +94,7 @@ void diagonalSecundaria(){
 
 // Exercício 4
 void triangularSuperior(){
+    printf("Triangular Superior \n");
     for (int i=0; i<n;i++){
         for (int j=0; j<i; j++){
             printf("**");
@@ -99,6 +109,7 @@ void triangularSuperior(){
 
 // Exercício 5
 void triangularInferior(){
+    printf("Triangular Inferior \n");
     for (int i=0; i<n;i++){
         for (int j=0; j<i;j++){
             printf("%d ", A[i][j]);
@@ -114,7 +125,8 @@ void triangularInferior(){
 // Exercício 6
 
 void vizinhosDoVertice(){
-    int row, column;
+    printf("Vizinhos de um vértice \n");
+    int row;
     row = 0;
     printf("Digite um valor da linha que deseja buscar: ");
     scanf("%d", &row);
@@ -130,6 +142,7 @@ void vizinhosDoVertice(){
 // Exercício 7
 
 void grafoKn(){
+    printf("Grafo Kn \n");
     for (int i=0; i<n; i++){
         for (int j = 0; j<n;j++){
             if (i == j) {
@@ -146,6 +159,7 @@ void grafoKn(){
 }
 
 void grafoCn(){
+    printf("Grafo Cn \n");
     for (int i=0; i<n; i++){
         for (int j = 0; j<n;j++){
             if (i == j) {
@@ -170,30 +184,48 @@ void grafoCn(){
     
 }    
 
+void grafoPn(){
+    printf("Grafo Pn \n");
+    for (int i=0; i<n; i++){
+        for (int j = 0; j<n;j++){
+            if (i == j) {
+                A[i][i] = 0;
+            }
+        printf("\n");
+        }
+    }        
+}
+
 // Exercício 8
 
 void grafoK(){
-    printf("Digite um valor para ");
+    int n1,n2;
+    n1 = 0;
+    n2 = 0;
+    printf("Digite um valor para n1: ");
+    scanf("%d",&n1 );
+    printf("Digite um valor para n2: ");
+    scanf("%d",&n2 );
+
 }
-
-
-
-void addAresta(int u, int v){
-  A[u][v]=1;
-  A[v][u]=1;
-}
-
-void imprime(){
-  for (int i=0; i<n; i++){
-    for(int j=0; j<n; j++){
-      printf("%d ",A[i][j]);
-    }
-    printf("\n");
-  }
-}  
 
 int main(){
     int nVertices = 5;
     novoGrafo(nVertices);
+    primeiraLinha();
+    ultimaLinha();
+    meioLinha();
+    primeiraColuna();
+    ultimaColuna();
+    meioColuna();
+    diagonalPrincipal();
+    diagonalSecundaria();
+    triangularSuperior();
+    triangularInferior();
+    vizinhosDoVertice(); // Caso não apresente nenhum valor no terminal quer dizer que não há vizinhos
+    grafoKn();
     grafoCn();
+    grafoPn();
+    grafoK();
+    
 }
