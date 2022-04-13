@@ -188,12 +188,23 @@ void grafoPn(){
     printf("Grafo Pn \n");
     for (int i=0; i<n; i++){
         for (int j = 0; j<n;j++){
-            if (i == j) {
+            if (i==j) {
                 A[i][i] = 0;
             }
-        printf("\n");
+            else if(i==0){
+                A[i][i+1] = 1;
+            }
+            else if(i== n-1){
+                A[n-1][n-2]=1;
+            }
+            else{
+                A[i][i-1] = 1;
+                A[i][i+1] = 1;
+            }
+        printf("%d ", A[i][j]);
         }
-    }        
+        printf("\n");
+    }     
 }
 
 // Exercício 8
@@ -212,20 +223,6 @@ void grafoK(){
 int main(){
     int nVertices = 5;
     novoGrafo(nVertices);
-    primeiraLinha();
-    ultimaLinha();
-    meioLinha();
-    primeiraColuna();
-    ultimaColuna();
-    meioColuna();
-    diagonalPrincipal();
-    diagonalSecundaria();
-    triangularSuperior();
-    triangularInferior();
-    vizinhosDoVertice(); // Caso não apresente nenhum valor no terminal quer dizer que não há vizinhos
-    grafoKn();
-    grafoCn();
     grafoPn();
-    grafoK();
     
 }
