@@ -44,31 +44,32 @@ int grau(int v){
 }
 
 int VIZ[MAX_SIZE];
-int numero_de_vizinhos;
-vizinhos(int v){
-    numero_de_vizinhos=0;
+int numero_vizinho;
+void vizinhos(int v){
+    numero_vizinho=0;
     for (int col=0;col<n;col++){
         if (A[v][col] != 0){
-            VIZ[numero_de_vizinhos++]=0;
+            VIZ[numero_vizinho++]=0;
+            printf("%d, A[%d][%d] =%d\n",numero_vizinho++,v,col,A[v][col]);
         }
     }
     printf("[");
-    for (int i=0; i<numero_de_vizinhos;i++){
+    for (int i=0; i<numero_vizinho;i++){
         printf("%d", VIZ[i]);
     }
-    printf("[\n")
+    printf("]\n");
 }
 
 int main(){
   int nVertices=5;
   novoGrafo(nVertices);
   // Adicionando valores na matriz nas seguintes posições (0,1),(1,2),(2,3),(3,4)
-  addAresta(0,1);
-  addAresta(1,2);
-  addAresta(2,3);
-  addAresta(3,4);
+  addAresta(1,0);
+  addAresta(0,0);
+  addAresta(4,3);
+  addAresta(2,2);
   imprime();
-  int vertice = 2; 
-  printf("grau(%d)=%d\n",vertice,grau(vertice));
+  //int vertice = 2; 
+  //printf("grau(%d)=%d\n",vertice,grau(vertice));
   vizinhos(0);
 }

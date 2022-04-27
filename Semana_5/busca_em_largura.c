@@ -36,19 +36,14 @@ void vizinhos(int v){
             VIZ[n_viz++]=col;
         }
     }
-   /** printf("[");
-    for(int i=0;i<n_viz;i++){
-        printf("%d,",VIZ[i]);
-    }
-    printf("]\n"); */
 }
 #define BRANCO 0
 #define PRETO 1
 int PAI[MAX_SIZE];
-
+int DIST[MAX_SIZE];
 void buscaEmLargura(int v_ini){
     int COR[MAX_SIZE];
-    int DIST[MAX_SIZE];
+    
     for(int v=0;v<n;v++){
         COR[v]=BRANCO;
         DIST[v] = -1;
@@ -75,10 +70,7 @@ void buscaEmLargura(int v_ini){
             }
         }
     }
-    /**printf("---------\n");
-    for(int v=0;v<n;v++){
-        printf("Vertice %d pai=%d dist=%d\n",v,PAI[v],DIST[v]);
-    }*/
+
 }
 
 void caminhoOrigem(int w){
@@ -94,32 +86,33 @@ void caminhoOrigem(int w){
 }
 // Verificar a conexidade
 // Obs. Se um vértice não for ligado a uma aresta comum ao vértice de origem, então o grafo é desconexo
+// Usar busca em largura e utilizar o vetor pai e distância. Se D for menor do 0, então o grafo é desconexo, caso contrário é conexo
 int conexo(){
-    int soma_vertice = 0;
-    for (int linha = 0; linha<n;linha++){
-        for (int coluna = 0; coluna<n;coluna++){
-            soma_vertice+= A[linha][coluna];
+    buscaEmLargura(2);
+    int valor = 0;
+    for (int i=0; i<n; i++){
+        if (DIST[i]<0){
+            printf("--------Grafo desconexo------\n");
+            break;
+        }
+        else{
+            valor = DIST[i];
         }
     }
-    if (soma_vertice<= n+1){
-        printf("Grafo Desconexo!! \n");
-    }
-    else{
-        printf("Grafo Conexo \n");
+    if (valor >0){
+        printf("-------Grafo Conexo--------\n");
     }
 }
 
 int main(){
     int nVertices=7;
     novoGrafo(nVertices);
-    addAresta(0,1);addAresta(1,2);addAresta(2,3);
+    addAresta(1,2);addAresta(2,3);
     addAresta(3,4);addAresta(4,5);addAresta(5,6);
-    addAresta(6, 0);
+    addAresta(1,3);addAresta(1,4);addAresta(1,5);addAresta(1,6);
     imprime();
-    conexo();
     vizinhos(0);
-    buscaEmLargura(0);
-    caminhoOrigem(3);
+    conexo(); // Dentro da função conexo, há a função busca em largura associada ao vértice correspondente
 }
 
 
